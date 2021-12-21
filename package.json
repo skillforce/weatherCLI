@@ -25,5 +25,10 @@
     "email": "https://www.skillforce@mail.ru "
   },
   "dependencies": {
+    "chalk": "^5.0.0",
+    "dedent-js": "^1.0.1"
+  },
+  "devDependencies": {
+    "axios": "^0.24.0"
   }
 }
