@@ -1,11 +1,10 @@
-import https from "https";
 import axios from 'axios'
 import {getKeyValue, TOKEN_DICTIONARY} from "./storage.service.js";
 
 
 const getWeather = async (city) => {
 
-    const token = await getKeyValue(TOKEN_DICTIONARY.token)
+    const token = process.env.TOKEN ?? await getKeyValue(TOKEN_DICTIONARY.token)
     if (!token) {
         throw new Error('Token-key is not exist yet, please take it with using -t [API_KEY] command ')
     }
