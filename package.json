@@ -16,7 +16,7 @@
   ],
   "author": "Denis Tatarinov",
   "license": "ISC",
-  "homepage": "https://www.udemy.com/",
+  "homepage": "https://vk.com/vpname/",
   "repository": {
     "type": "git",
     "url": "https://github.com/skillforce/weatherCLI"
@@ -25,11 +25,9 @@
     "email": "https://www.skillforce@mail.ru "
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "chalk": "^5.0.0",
     "dedent-js": "^1.0.1",
     "moment": "^2.29.1"
-  },
-  "devDependencies": {
-    "axios": "^0.24.0"
   }
 }
