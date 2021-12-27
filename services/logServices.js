@@ -19,13 +19,14 @@ const printHelp = () => {
 }
 
 
-const printWeather = (weather) => {
+const printWeather = (weather,icon) => {
+
     console.log(dedent` ${chalk.bgGreen(`${chalk.yellow('Weather')} in ${chalk.red(weather.name)} ${chalk.red(`(${weather.sys.country})`)} :`)}
         ========================================================
         ${chalk.bgWhite(`${chalk.bold('Sunrise time')}`)} : ${moment.unix(weather?.sys?.sunrise).format('MMMM Do YYYY, h:mm:ss a')}
         ${chalk.bgWhite(`${chalk.bold('Sunset time')}`)} : ${moment.unix(weather?.sys?.sunset).format('MMMM Do YYYY, h:mm:ss a')}
         ========================================================
-        ${chalk.bgWhite(`${chalk.bold('Currently')}`)} : ${weather.weather[0].description}
+        ${chalk.bgWhite(`${chalk.bold('Currently')}`)} : ${weather.weather[0].description} ${icon}
         ========================================================
         ${chalk.cyan('Temperature')} : ${weather.main.temp} °C
         ${chalk.cyan('Max')} : ${weather.main.temp_max} °C

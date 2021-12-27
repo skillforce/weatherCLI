@@ -2,7 +2,7 @@
 import {getArgs} from "./helpers/args.js";
 import {printError, printHelp, printSuccess, printWeather} from "./services/logServices.js";
 import {getKeyValue, saveKeyValue, TOKEN_DICTIONARY} from "./services/storage.service.js";
-import {getWeather} from "./services/api.service.js";
+import {getWeather,getIcon} from "./services/api.service.js";
 import moment from 'moment';
 
 
@@ -27,9 +27,10 @@ const setUpEnv = async (envElement, type) => {
 const getForecast = async () => {
 
     try {
-        const city = await getKeyValue(TOKEN_DICTIONARY.city)
+        const city = process.env.CITY ?? await getKeyValue(TOKEN_DICTIONARY.city)
         const weather = await getWeather(city)
-        printWeather(weather)
+        const icon = getIcon(weather.weather[0].icon)
+        printWeather(weather,icon)
     } catch (err) {
         if (err?.response?.status === 404) {
             printError('City name is incorrect')
